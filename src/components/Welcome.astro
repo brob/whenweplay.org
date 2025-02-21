@@ -6,12 +6,43 @@ import background from '../assets/background.svg';
 <div id="container">
 	<img id="background" src={background.src} alt="" fetchpriority="high" />
 	<main>
-		<section id="hero">
+		<section id="hero" class="container">
 			
 			<h1>
 				When We Play
 			</h1>
-			<h2>When We Play is a project dedicated to the notion that when we play together, we form tight personal bonds. Whether playing with friends, family, or your community, what could be more important? More to come soon...</h2>
+
+			<p>When we play, something magical happens. We come unbound, if only for a time, from the mundane pace of our small reality, and connect to something greater. If we don’t take the time to play, we’re only ever what, who, and where we are.</p>
+
+			<p><strong>We can be something greater.</strong></p>
+
+			<p>When We Play is dedicated to the belief that Play is important for everyone. Play is for children. Play is for teenagers. Play is for adults.</p>
+
+			<p>Beyond that, Play is for families, for communities, for businesses, and maybe for the world.</p>
+
+			<p>Non-profits exist to research Play. They take a scholarly approach. Likewise, there are great organizations bringing play to children and schools. These endeavors are drastically important, but they’re not the whole story.</p>
+
+			<p>What When We Play seeks bring Play to communities, families, and cross-generational divides. We seek to operationalize what researchers have discovered: we need Play.</p>
+
+			<p>We seek to give permission and room for <em>EVERYONE</em> to play and grow together.</p>
+		
+			<form
+			action="https://buttondown.com/api/emails/embed-subscribe/when-we-play"
+			method="post"
+			target="popupwindow"
+			onsubmit="window.open('https://buttondown.com/when-we-play', 'popupwindow')"
+			class="embeddable-buttondown-form"
+		  >
+			<h2>Follow on this journey</h2>
+			<p>We won't spam you, we'll just send semi-regular project updates.As we work toward what When We Play is as an organization, we’ll send out regular updates on our progress toward making Play accessible to everyone.</p>
+
+			<p>Follow our progress, and help us shape what this organization will be.</p>
+			<label for="bd-email">Enter your email</label>
+			<input type="email" name="email" id="bd-email" />
+			
+			<input type="submit" value="Subscribe" />
+			
+		  </form>
 		</section>
 	</main>
 
@@ -28,17 +59,64 @@ import background from '../assets/background.svg';
 		filter: blur(100px);
 	}
 
+	form.embeddable-buttondown-form {
+		display: grid;
+		width: 100%;
+		margin-top: 2rem;
+		gap: 8px;
+		padding: 16px;
+		background: rgba(255, 255, 255, 0.8);
+		border-radius: 8px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	}
+	form.embeddable-buttondown-form h2 {
+		font-size: 1.75rem;
+	}
+	form.embeddable-buttondown-form label {
+		font-size: 1rem;
+		color: #333;
+	}
+
+	form.embeddable-buttondown-form input[type="email"] {
+		padding: 8px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		font-size: 1rem;
+	}
+
+	form.embeddable-buttondown-form input[type="submit"] {
+		padding: 10px 16px;
+		border: none;
+		border-radius: 4px;
+		background-color: #3245ff;
+		color: white;
+		font-size: 1rem;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+	}
+
+	form.embeddable-buttondown-form input[type="submit"]:hover {
+		background-color: #2739cc;
+	}
+
 	#container {
 		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
 		height: 100%;
 	}
+	p {
+		font-size: 1.25rem;
+		line-height: 1.5em;
+	}
 
 	main {
 		height: 100%;
-		display: flex;
-		justify-content: center;
+		
 	}
 
+	.container {
+		max-width: 90ch;
+		margin: 0 auto;
+	}	
 	#hero {
 		display: flex;
 		align-items: start;
@@ -113,10 +191,10 @@ import background from '../assets/background.svg';
 
 	p {
 		color: #4b5563;
-		font-size: 16px;
-		line-height: 24px;
-		letter-spacing: -0.006em;
 		margin: 0;
+	}
+	p + p {
+		margin-top: 1.5rem;
 	}
 
 	code {
