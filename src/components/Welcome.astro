@@ -6,26 +6,27 @@ import background from '../assets/background.svg';
 <div id="container">
 	<img id="background" src={background.src} alt="" fetchpriority="high" />
 	<main>
-		<section id="hero" class="container">
-			
-			<h1>
-				When We Play
-			</h1>
+		<section id="hero">
+			<div class="grid">
+				<h1>
+					When We Play
+				</h1>
+				<div>
 
-			<p>When we play, something magical happens. We come unbound, if only for a time, from the mundane pace of our small reality, and connect to something greater. If we don’t take the time to play, we’re only ever what, who, and where we are.</p>
+					<p>When we play, something magical happens. We come unbound, if only for a time, from the mundane pace of our small reality, and connect to something greater. If we don’t take the time to play, we’re only ever what, who, and where we are.</p>
 
-			<p><strong>We can be something greater.</strong></p>
-
-			<p>When We Play, as an orginization, is dedicated to the belief that Play is important for everyone. Play is for children. Play is for teenagers. Play is for adults.</p>
-
-			<p>Beyond that, Play is for families, for communities, for businesses, and maybe for the world.</p>
-
-			<p>Non-profits exist to research Play. They take a scholarly approach. Likewise, there are great organizations bringing play to children and schools. These endeavors are drastically important, but they’re not the whole story.</p>
-
-			<p>When We Play seeks bring Play to communities, families, and cross-generational divides. We seek to operationalize what researchers have discovered: we need Play.</p>
-
-			<p>We seek to give permission and room for <em>EVERYONE</em> to play and grow together.</p>
+					<p><strong>We can be something greater.</strong></p>
 		
+					<p>When We Play, as an orginization, is dedicated to the belief that Play is important for everyone. Play is for children. Play is for teenagers. Play is for adults.</p>
+		
+					<p>Beyond that, Play is for families, for communities, for businesses, and maybe for the world.</p>
+		
+					<p>Non-profits exist to research Play. They take a scholarly approach. Likewise, there are great organizations bringing play to children and schools. These endeavors are drastically important, but they’re not the whole story.</p>
+		
+					<p>When We Play seeks bring Play to communities, families, and cross-generational divides. We seek to operationalize what researchers have discovered: we need Play.</p>
+		
+					<p>We seek to give permission and room for <em>EVERYONE</em> to play and grow together.</p>
+				
 			<form
 			action="https://buttondown.com/api/emails/embed-subscribe/when-we-play"
 			method="post"
@@ -34,7 +35,7 @@ import background from '../assets/background.svg';
 			class="embeddable-buttondown-form"
 		  >
 			<h2>Follow on this journey</h2>
-			<p>We won't spam you, we'll just send semi-regular project updates.As we work toward what When We Play is as an organization, we’ll send out regular updates on our progress toward making Play accessible to everyone.</p>
+			<p>We won't spam you, we'll just send semi-regular project updates. As we work toward what When We Play is as an organization, we’ll send out regular updates on our progress toward making Play accessible to everyone.</p>
 
 			<p>Follow our progress, and help us shape what this organization will be.</p>
 			<label for="bd-email">Enter your email</label>
@@ -43,12 +44,19 @@ import background from '../assets/background.svg';
 			<input type="submit" value="Subscribe" />
 			
 		  </form>
+				</div>
+			</div>
+		
+
 		</section>
 	</main>
 
 </div>
 
 <style>
+	* {
+		box-sizing: border-box;
+	}
 	#background {
 		position: fixed;
 		top: 0;
@@ -117,13 +125,30 @@ import background from '../assets/background.svg';
 		max-width: 90ch;
 		margin: 0 auto;
 	}	
+	#hero .grid {
+		display: grid;
+		grid-template-columns: 2fr 1.5fr;
+		gap: 2rem;
+		align-items: start;
+		position:relative;
+		
+	}
+	
+	#hero .grid div {
+	}
+	#hero h1 {
+		font-size: calc(2.5vw + 12rem);
+		position: sticky;
+		max-height: 95vh;
+		top: 0
+	}
 	#hero {
-		display: flex;
+		width: 100%;
 		align-items: start;
 		flex-direction: column;
 		justify-content: center;
-		padding: 16px;
-		max-width: 86ch;
+		padding: 3rem;
+
 	}
 
 	h1 {
@@ -263,5 +288,15 @@ import background from '../assets/background.svg';
 		h1 {
 			line-height: 1.5;
 		}
+	}
+	@media screen and (max-width: 1080px) {
+		#hero .grid {
+			grid-template-columns: 1fr;
+		}
+		#hero h1 {
+			font-size: 5rem;
+			margin: 2rem 0 1rem
+		}
+		
 	}
 </style>
