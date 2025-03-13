@@ -1,0 +1,10 @@
+---
+import Layout from "./Layout.astro";
+const {title} = Astro.props
+---
+
+<Layout title={title}>
+    <div class="prose w-3xl">
+    <slot />
+</div>
+</Layout>

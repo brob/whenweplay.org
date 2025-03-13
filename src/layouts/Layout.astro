@@ -1,22 +1,44 @@
+---
+import background from "../assets/background.svg";
+import '../styles/global.css';
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>When We Play</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>When We Play</title>
+  </head>
+  <body>
+    <div id="container">
+      <img id="background" src={background.src} alt="" fetchpriority="high" />
+      <main>
+        <main>
+          <section id="hero">
+            <div class="grid">
+              <div class="logo-text">
+                <a href="/">When We Play</a>
+              </div>
+              <div>
+                <slot />
+              </div>
+            </div>
+          </section>
+        </main>
+      </main>
+    </div>
+  </body>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+  <style>
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+</html>
