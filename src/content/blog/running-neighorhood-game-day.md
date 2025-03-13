@@ -65,3 +65,25 @@ It was also a great opportunity suggest games to the other families. I even have
 
 We'll definitely need to run this again, and it gives me great hope for the idea of helping families play.
 
+
+
+<form
+  action="https://buttondown.com/api/emails/embed-subscribe/when-we-play"
+  method="post"
+  target="popupwindow"
+  onsubmit="window.open('https://buttondown.com/when-we-play', 'popupwindow')"
+  class="embeddable-buttondown-form"
+>
+  <h2 class="mt-2">Follow us on this journey</h2>
+  <p>
+    We won't spam you, we'll just send semi-regular project updates. As we work
+    toward what When We Play is as an organization, we’ll send out regular
+    updates on our progress toward making Play accessible to everyone.
+  </p>
+
+  <p>Follow our progress, and help us shape what this organization will be.</p>
+  <label for="bd-email">Enter your email</label>
+  <input type="email" name="email" id="bd-email" />
+
+  <input type="submit" value="Subscribe" />
+</form>
