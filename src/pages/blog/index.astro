@@ -8,11 +8,12 @@ const posts = await getCollection('blog')
 
 <Layout title="Blog">
     <h2>Blog</h2>
-    <p>Coming soon...</p>
     <ul>
         {posts.map((post) => (
             <li>
-                <a href={`/blog/${post.data.slug}`}>{post.data.title}</a>
+
+                <h3><a href={`/blog/${post.data.slug}`}>{post.data.title}</a></h3>
+                <p>{post.data.description}</p>
             </li>   
         ))}
     </ul>

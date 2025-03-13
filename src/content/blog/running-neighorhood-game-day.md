@@ -2,6 +2,7 @@
 title: Running a neighborhood game day
 slug: running-neighborhood-game-day
 date: 2025-03-13
+description: A look at the ins and outs of running a first board game event in a local neighborhood.
 ---
 
 # Running a neighborhood game day
