@@ -1,6 +1,8 @@
 ---
 import background from "../assets/background.svg";
 import '../styles/global.css';
+
+const {title, description} = Astro.props
 ---
 
 <!doctype html>
@@ -10,6 +12,20 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/meeple.svg" />
     <meta name="generator" content={Astro.generator} />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title || "When We Play"} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:image" content={new URL('/meeple.svg', Astro.url)} />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    {description && <meta property="twitter:description" content={description} />}
+    <meta property="twitter:image" content={new URL('/meeple.svg', Astro.url)}  /> 
+
+
     <title>When We Play</title>
   </head>
   <body>
