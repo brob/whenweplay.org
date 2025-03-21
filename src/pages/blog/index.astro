@@ -9,7 +9,7 @@ const posts = await getCollection('blog')
 <Layout title="Blog">
     <h2>Blog</h2>
     <ul>
-        {posts.map((post) => (
+        {posts.reverse().map((post) => (
             <li>
 
                 <h3><a href={`/blog/${post.data.slug}`}>{post.data.title}</a></h3>
