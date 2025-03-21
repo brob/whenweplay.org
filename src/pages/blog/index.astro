@@ -3,7 +3,9 @@ import Blog from "../../layouts/Layout.astro";
 import Layout from '../../layouts/BlogLayout.astro'
 import { getCollection } from "astro:content";
 
-const posts = await getCollection('blog')
+const posts = (await getCollection('blog')).sort((a, b) => {
+    return a.data.date.valueOf() - b.data.date.valueOf();
+});
 ---
 
 <Layout title="Blog">
