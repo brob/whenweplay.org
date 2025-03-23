@@ -86,7 +86,7 @@ Before we start a game, we all read the Play Promise out loud. It reminds us all
 > I'll try my **best** to win, but if I lose, I promise to **celebrate with the winner**!
 > 
 
-If you like this as an idea, download this printable PDF to have for your table and game night.
+If you like this as an idea, download [this printable PDF](/play-promise.pdf) to have for your table and game night.
 
 ## Family games should be fun — win or lose
 
@@ -95,3 +95,25 @@ Sitting around a table with loved ones playing something intended for fun can cr
 Learning to accept failure and keep trying are skills that will benefit everyone throughout their lives. Playing together is one avenue to this if done right.
 
 Happy Playing!
+
+
+<form
+  action="https://buttondown.com/api/emails/embed-subscribe/when-we-play"
+  method="post"
+  target="popupwindow"
+  onsubmit="window.open('https://buttondown.com/when-we-play', 'popupwindow')"
+  class="embeddable-buttondown-form"
+>
+  <h2 class="mt-2">Follow us on this journey</h2>
+  <p>
+    We won't spam you, we'll just send semi-regular project updates. As we work
+    toward what When We Play is as an organization, we’ll send out regular
+    updates on our progress toward making Play accessible to everyone.
+  </p>
+
+  <p>Follow our progress, and help us shape what this organization will be.</p>
+  <label for="bd-email">Enter your email</label>
+  <input type="email" name="email" id="bd-email" />
+
+  <input type="submit" value="Subscribe" />
+</form>
