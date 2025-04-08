@@ -2,7 +2,7 @@
 title: Play expands the soul
 slug: play-expands-the-soul
 date: 2025-04-08
-description: "Learning to lose is an important life skill. Here are some tips for helping kids learn to lose gracefully when playing board games."
+description: "When my soul stifles, the remedy must be play."
 ---
 
 # Play expands the soul
