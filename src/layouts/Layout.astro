@@ -3,6 +3,9 @@ import background from "../assets/background.svg";
 import '../styles/global.css';
 
 const {title, description} = Astro.props
+const { frontmatter } = Astro.props;
+
+console.log(description);
 ---
 
 <!doctype html>
@@ -17,7 +20,7 @@ const {title, description} = Astro.props
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title || "When We Play"} />
     {description && <meta property="og:description" content={description} />}
-    {description && <meta name="description" content={description} />}
+     <meta name="description" content={description} />
     <meta property="og:site_name" content="When We Play" />
     <meta property="og:image" content={new URL('/meeple.svg', Astro.url)} />
 
