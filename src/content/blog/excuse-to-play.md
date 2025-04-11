@@ -11,7 +11,7 @@ It’s 5:30, and I’m cooking dinner. I glance up as my son darts from the livi
 
 A child needs no excuse to play. They are much closer to the base instinct of humanity. Humans learn, grow, and thrive through play. Even into adulthood, we require play to feel fully at ease and in a position to grow and thrive.
 
-(QUOTATION HERE WHEN I GET BACK TO THE BOOK)
+> Play also promotes the creation of new connections [in the brain] that didn't exist before, new connections between neurons and between disparate areas of brain centers. - Dr. Stuart Brown, *[Play: How It Shapes the Brain, Opens the Imagination, and Invigorates the Soul](https://www.amazon.com/Play-Shapes-Brain-Imagination-Invigorates/dp/1583333789)*
 
 Why is it, then, that we feel like we can’t play? 
 
