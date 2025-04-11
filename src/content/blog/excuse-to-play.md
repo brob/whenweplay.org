@@ -1,11 +1,11 @@
 ---
-title: Give yourself and excuse to play
+title: Give yourself an excuse to play
 slug: excuse-to-play
 date: 2025-04-11
 description: "Adults struggle to find the time to engage in play. We shouldn't need an excuse, but here are some excuses."
 ---
 
-# Give yourself and excuse to play
+# Give yourself an excuse to play
 
 It’s 5:30, and I’m cooking dinner. I glance up as my son darts from the living room and runs upstairs. Over the sound of sautéing onions and garlic, I hear prolonged bumps and heavy footfalls—for creatures that weigh less than half an adult weight, it’s impressive how loud running can be. Down the stairs and back to the couch, my son sprints, his arms full of stuffed animals. A new play activity begins…
 
