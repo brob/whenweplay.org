@@ -1,0 +1,17 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import { getCollection } from "astro:content";
+import MaterialItem from "../../components/MaterialItem.astro";
+const materials = await getCollection("materials");
+
+---
+
+<Layout title="Livonia Materials">
+    <h1>Livonia Materials for checkout</h1>
+
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-8">
+        {materials.map((material) => (
+            <MaterialItem material={material} />
+        ))}
+
+</Layout>
