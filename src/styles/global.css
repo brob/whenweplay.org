@@ -77,12 +77,6 @@
     max-width: 90ch;
     margin: 0 auto;
   }
-  #hero .grid {
-    grid-template-columns: 1.25fr 2fr;
-    gap: 2rem;
-    align-items: start;
-    position: relative;
-  }
 
   #hero .grid div {
   }

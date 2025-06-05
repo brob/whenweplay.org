@@ -1,0 +1,25 @@
+---
+import imageUrlBuilder from "@sanity/image-url";
+import { sanityClient } from "sanity:client";
+
+interface Props {
+    image: any; // Replace `any` with the specific type for your Sanity image object
+    alt: string;
+    width?: number;
+    height?: number;
+    className?: string;
+}
+
+const { image, alt, width=800, height=600, className } = Astro.props;
+
+const builder = imageUrlBuilder(sanityClient);
+const imageUrl = image.asset ? builder.image(image).url() : null;
+---
+{imageUrl && <img 
+    src={imageUrl} 
+    alt={alt} 
+    width={width} 
+    height={height} 
+    class={className} 
+    loading="lazy" 
+/>}

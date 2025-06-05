@@ -1,0 +1,52 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import { getCollection } from "astro:content";
+import MaterialItem from "../../components/MaterialItem.astro";
+const materials = await getCollection("materials");
+
+export async function getStaticPaths() {
+const materials = await getCollection('materials');
+const groupedMaterials = materials.reduce((acc: { name: string; slug: string; materials: typeof materials }[], material) => {
+    const itemTypeName = material.data.itemType || "unknown";
+    const itemTypeSlug = itemTypeName.toLowerCase().replace(/\s+/g, '-'); // Convert itemType to slug format
+
+    if (!acc.some(group => group.slug === itemTypeSlug)) {
+        acc.push({
+            name: itemTypeName,
+            slug: itemTypeSlug,
+            materials: []
+        });
+    }
+
+    const group = acc.find(group => group.slug === itemTypeSlug);
+    if (group) {
+        group.materials.push(material);
+    }
+
+    return acc;
+}, []);
+
+
+const paths = groupedMaterials
+        .filter(group => group.slug) // Ensure slug exists
+        .map(group => ({
+            params: { type: group.slug },
+            props: { group: group }
+        }));
+
+    return paths;
+}
+
+const { group } = Astro.props;
+
+---
+
+<Layout title="Livonia Play Materials">
+    <h1>{group.name} Play Materials ({group.materials.length})</h1>
+
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-8">
+        {group.materials.map((material) => (
+            <MaterialItem material={material} />
+        ))}
+
+</Layout>

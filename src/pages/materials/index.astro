@@ -1,0 +1,39 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import { getCollection } from "astro:content";
+import MaterialItem from "../../components/MaterialItem.astro";
+const materials = await getCollection("materials");
+const groupedMaterials = materials.reduce((acc: { name: string; slug: string; materials: typeof materials }[], material) => {
+    const itemTypeName = material.data.itemType || "unknown";
+    const itemTypeSlug = itemTypeName.toLowerCase().replace(/\s+/g, '-'); // Convert itemType to slug format
+
+    if (!acc.some(group => group.slug === itemTypeSlug)) {
+        acc.push({
+            name: itemTypeName,
+            slug: itemTypeSlug,
+            materials: []
+        });
+    }
+
+    const group = acc.find(group => group.slug === itemTypeSlug);
+    if (group) {
+        group.materials.push(material);
+    }
+
+    return acc;
+}, []);
+
+
+---
+
+<Layout title="Livonia Play Materials">
+    <h1>Play Materials</h1>
+    {groupedMaterials.map(group => (
+        <li><a href={`/materials/${group.slug}`}>{group.name} ({group.materials.length})</a> </li>
+    ))}
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-8">
+        {materials.map((material) => (
+            <MaterialItem material={material} />
+        ))}
+
+</Layout>
