@@ -26,6 +26,8 @@ const materials = defineCollection({
         description: z.any(),
         msrp: z.number().nullable().optional(),
         age: z.string().nullable(),
+        itemType: z.string().nullable().optional()
+
     }),
     loader: async () => {
 
@@ -42,7 +44,8 @@ const materials = defineCollection({
             available,
             description,
             msrp,
-            age
+            age,
+            itemType
         }`;
 
         const builder = imageUrlBuilder(sanityClient)
@@ -61,6 +64,7 @@ const materials = defineCollection({
             msrp: material.msrp,
             age: material.age,
             boxArt: material.boxArt,
+            itemType: material.itemType,
             // boxArtUrl: material?.boxArt ? urlFor(material.boxArt).url() : null
 
         }))
