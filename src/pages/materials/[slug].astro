@@ -40,7 +40,7 @@ const { name, tagline, slug, description, msrp, age } = material;
         </div>
 
         <div class="md:max-w-1/2 md:mr-10 md:float-start mb-3">
-        {material.boxArt && <SanityImage image={material.boxArt} alt={name} width={400} className="w-full object-contain object-center h-[20rem] block" />}
+        {material?.boxArt && <SanityImage image={material.boxArt} alt={name} width={400} className="w-full object-contain object-center h-[20rem] block" />}
             
 
     </div>
