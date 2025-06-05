@@ -13,13 +13,13 @@ interface Props {
 const { image, alt, width=800, height=600, className } = Astro.props;
 
 const builder = imageUrlBuilder(sanityClient);
-const imageUrl = builder.image(image).url();
+const imageUrl = image.asset ? builder.image(image).url() : null;
 ---
-<img 
+{imageUrl && <img 
     src={imageUrl} 
     alt={alt} 
     width={width} 
     height={height} 
     class={className} 
     loading="lazy" 
-/>
+/>}
