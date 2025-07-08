@@ -1,0 +1,19 @@
+---
+const {classes, style="contained"} = Astro.props;
+---
+
+
+
+<div class:list={['container mx-auto px-4', classes, {full: style === 'full'}]}>
+    <slot />
+</div>
+
+
+<style>
+    .full {
+        width: 100%;
+        max-width: 1400px;
+        padding: inherit 3rem;
+    }
+
+    </style>

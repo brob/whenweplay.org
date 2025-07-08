@@ -1,0 +1,66 @@
+---
+import Welcome from '../components/Welcome.astro';
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/Container.astro';
+import Button from '../components/Button.astro';
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title="About When We Play">
+<Container>
+    <h1 class="text-4xl font-bold mb-4">Running Programs</h1>
+
+    <p>
+        When We Play runs programs for various organizations seeking to help people connect. We'd love to partner with you to run programs with our materials, volunteers, and expertise. Our goal is to create inclusive and engaging experiences that bring people together through the joy of play.
+    </p>
+
+    <h2>Game Programs</h2>
+
+    <p>
+    We create game programs for schools, libraries, and other community-centric organizations that help people come together. These programs are designed to foster connection between families and communities via the power of games and play to open communication and lower barriers between people.
+    </p>
+    <p>
+        By using our collection of over 1000 toys, games, and puzzles, we aim to equip individuals and communities with the tools they need to play. Our programs are tailored to meet the needs of each organization, ensuring that everyone can participate and benefit from the joy of play.
+    </p>
+    <Button href="/contact" text="Run a program with us" />
+    
+    <h2>Tabletop Programs</h2>
+    <p>
+        As much as board games and card games are great ways to connect, tabletop games such as Pathfinder and Dungeons and Dragons can help open up paths to communication much more.
+    </p>
+    </p>
+    <p>
+        We run these programs for schools, libraries, and other community-centric organizations that help people come together through the use of collaborative storytelling games. 
+    </p>
+
+    <Button href="/contact" text="Tell stories with us" />
+
+    <h2>Creative Programs</h2>
+
+    <p>
+        Play is not just games. It's about any endeavor that stimulates our brains and exists "outside of time". In this vein, we also create programs based around various creative pursuits such as art, music, and writing. These programs are designed to encourage self-expression and creativity in a supportive environment.
+    </p>
+
+    <Button href="/contact" text="Create with us" />
+    <h2>Play Programs</h2>
+
+    <p>
+        Play is such a broad range of activities, we could never list all the types of programs we'd like to run. With that in mind, if you have a type of Play program that you'd like to run, we'd love to help you make that a reality.
+    </p>
+
+    <Button href="/contact" text="We'd love to help" />
+</Container>
+</Layout>
+
+
+<style>
+    @import "tailwindcss";
+
+    h2 {
+        @apply text-3xl font-bold mt-6 mb-2;
+    }
+    p {
+        @apply text-lg text-gray-700 mb-4;
+    }
+</style>

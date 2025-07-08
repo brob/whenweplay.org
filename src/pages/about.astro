@@ -1,0 +1,83 @@
+---
+import Welcome from '../components/Welcome.astro';
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/Container.astro';
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title="About When We Play">
+<Container>
+    <h1 class="text-4xl font-bold mb-4">About When We Play</h1>
+
+    <p>
+        When we play, something magical happens. We come unbound, if only for a time,
+        from the mundane pace of our small reality, and connect to something greater.
+        If we don’t take the time to play, we’re only ever what, who, and where we
+        are.
+      </p>
+      
+      <p><strong>We can be something greater.</strong></p>
+      
+      <p>
+        When We Play, as an orginization, is dedicated to the belief that Play is
+        important for everyone. Play is for children. Play is for teenagers. Play is
+        for adults.
+      </p>
+      
+      <p>
+        Beyond that, Play is for families, for communities, for businesses, and maybe
+        for the world.
+      </p>
+      
+      <p>
+        Non-profits exist to research Play. They take a scholarly approach. Likewise,
+        there are great organizations bringing play to children and schools. These
+        endeavors are drastically important, but they’re not the whole story.
+      </p>
+      
+      <p>
+        When We Play seeks bring Play to communities, families, and cross-generational
+        divides. We seek to operationalize what researchers have discovered: we need
+        Play.
+      </p>
+      
+      <h2>Our mission</h2>
+      <p>When We Play fosters connection between individuals, families, and communities via the power of games and play to open communication and lower barriers between people.</p>
+      
+      <p>We plan to give everyone an excuse to play by offering a space, equipment, and events for families, communities, businesses, and individuals to join together in games and creative endeavors.</p>
+
+      
+      <form
+        action="https://buttondown.com/api/emails/embed-subscribe/when-we-play"
+        method="post"
+        target="popupwindow"
+        onsubmit="window.open('https://buttondown.com/when-we-play', 'popupwindow')"
+        class="embeddable-buttondown-form"
+      >
+        <h2>Follow on this journey</h2>
+        <p>
+          We won't spam you, we'll just send semi-regular project updates. As we work
+          toward what When We Play is as an organization, we’ll send out regular
+          updates on our progress toward making Play accessible to everyone.
+        </p>
+      
+        <p>Follow our progress, and help us shape what this organization will be.</p>
+        <label for="bd-email">Enter your email</label>
+        <input type="email" name="email" id="bd-email" />
+      
+        <input type="submit" value="Subscribe" />
+      </form>
+</Container>
+</Layout>
+
+<style>
+    @import "tailwindcss";
+
+    h2 {
+        @apply text-3xl font-bold mt-6 mb-2;
+    }
+    p {
+        @apply text-lg text-gray-700 mb-4;
+    }
+</style>

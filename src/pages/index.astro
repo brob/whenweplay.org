@@ -1,18 +1,88 @@
 ---
+import Hero from '../components/Hero.astro';
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Container from '../components/Container.astro';
+import { getCollection } from 'astro:content';
+import Button from '../components/Button.astro';
+const latestPosts = (await getCollection('blog')).slice(0, 2);
 ---
 
 <Layout>
-	<Welcome />
+  <Container classes="my-15">
+  <Hero 
+    title="When We Play"
+    description="When we play, something magical happens. We come unbound, if only for a time, from the mundane pace of our small reality, and connect to something greater. If we don’t take the time to play, we’re only ever what, who, and where we are."
+  />
+</Container>
+
+  <Container classes="mb-15" style="full">
+    <h2 class="text-3xl font-bold mb-5">What we do</h2>
+    <p class="text-lg text-gray-700 mb-5">In order to support our mission, we partner with organizations and individuals.</p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="p-4 bg-gray-100 rounded shadow">
+      <h3 class="text-2xl font-bold mb-2">Equip People</h3>
+      <p class="text-sm text-gray-700 mb-2">We have over 1000 toys, games, and puzzles to help individuals and communities play</p>
+      <a href="/materials/" class="text-green-800 font-bold hover:underline">See the materials &raquo;</a>
+    </div>
+    <div class="p-4 bg-gray-100 rounded shadow">
+      <h3 class="text-2xl font-bold mb-2">Create Programs</h3>
+      <p class="text-sm text-gray-700">We create Play programs for schools, libraries, and other community-centric organizations that help people come together.</p>
+      <a href="/programs/" class="text-green-800 font-bold hover:underline">See the programs &raquo;</a>
+    </div>
+    <div class="p-4 bg-gray-100 rounded shadow">
+      <h3 class="text-2xl font-bold mb-2">Share Space</h3>
+      <p class="text-sm text-gray-700">Our goal is to open and provide in-person space to allow people an excuse and location to Play.</p>
+      <a href="/contact" class="text-green-800 font-bold hover:underline">Help find the space &raquo;</a>
+    </div>
+  </div>
+</Container>
+
+<Container>
+
+  <h2>Our mission</h2>
+  <p>When We Play fosters connection between individuals, families, and communities via the power of games and play to open communication and lower barriers between people.</p>
+  
+  <p>We plan to give everyone an excuse to play by offering a space, equipment, and events for families, communities, businesses, and individuals to join together in games and creative endeavors.</p>
+
+  <form
+  action="https://buttondown.com/api/emails/embed-subscribe/when-we-play"
+  method="post"
+  target="popupwindow"
+  onsubmit="window.open('https://buttondown.com/when-we-play', 'popupwindow')"
+  class="embeddable-buttondown-form mb-20"
+>
+  <h2>Follow on this journey</h2>
+  <p>
+    We won't spam you, we'll just send semi-regular project updates. As we work
+    toward what When We Play is as an organization, we’ll send out regular
+    updates on our progress toward making Play accessible to everyone.
+  </p>
+
+  <label for="bd-email">Enter your email</label>
+  <input type="email" name="email" id="bd-email" />
+
+  <input type="submit" value="Subscribe" />
+</form>
+
+<h2>Latest Blog Post</h2>
+{latestPosts.map((post) => (
+  <div class="mb-6" key={post.slug}>
+    <h3 class="text-2xl font-bold mb-2 text-green-800 hover:underline"><a href={`/blog/${post.slug}`}>{post.data.title}</a></h3>
+    <p class="text-lg text-gray-700 mb-4">{post.data.description}</p>
+  </div>
+))}
+<Button href="/blog" text="See all blog posts"  />
+
+
+</Container>
 </Layout>
 
 
 
 <style>
+    @import "tailwindcss";
+
 	  #hero .grid {
     grid-template-columns: 1.25fr 2fr;
     gap: 2rem;
@@ -20,4 +90,13 @@ import Layout from '../layouts/Layout.astro';
     position: relative;
   }
 
+
+
+
+    h2 {
+        @apply text-3xl font-bold mt-6 mb-4;
+    }
+    p {
+        @apply text-lg text-gray-700 mb-4;
+    }
 </style>

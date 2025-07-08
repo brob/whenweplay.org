@@ -24,10 +24,6 @@
     width: 100%;
     margin-top: 2rem;
     gap: 8px;
-    padding: 16px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   form.embeddable-buttondown-form h2 {
     font-size: 1.75rem;
@@ -75,7 +71,6 @@
 
   .container {
     max-width: 90ch;
-    margin: 0 auto;
   }
 
   #hero .grid div {
@@ -159,7 +154,6 @@
 
   p {
     color: #4b5563;
-    margin: 0;
   }
   p + p {
     margin-top: 1.5rem;
