@@ -1,0 +1,43 @@
+---
+
+---
+
+<span class="rotating-words text-green-600 ">
+    <slot />
+</span>
+<style>
+    .rotating-words {
+        display: inline-block;
+        /* font-size: 1.5rem; */
+        font-weight: bold;
+
+        transition: opacity 0.75s ease-in-out;
+    }
+    .rotating-words::before {
+        content: 'We ';
+    }
+    .rotating-words::after {
+        content: ' ';
+    }
+
+    .rotating-words::before,
+    .rotating-words::after {
+        content: '';
+    }
+</style>
+<script>
+    const phrases = ['grow', 'learn', 'connect', 'explore', 'create'];
+    const rotatingWords = document.querySelector('.rotating-words');
+    let index = 0;
+    rotatingWords.innerText = phrases[index];
+    setInterval(() => {
+        index = (index + 1) % phrases.length;
+        rotatingWords.style.opacity = '0'; // Fade out
+
+        setTimeout(() => {
+            rotatingWords.innerText = phrases[index];
+            rotatingWords.style.opacity = '1'; // Fade in
+        }, 750);
+
+    }, 3000);
+</script>

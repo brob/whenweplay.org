@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro"
 import { getCollection } from "astro:content";
 import MaterialItem from "../../components/MaterialItem.astro";
+import Container from "../../components/Container.astro";
 const materials = await getCollection("materials");
 const groupedMaterials = materials.reduce((acc: { name: string; slug: string; materials: typeof materials }[], material) => {
     const itemTypeName = material.data.itemType || "unknown";
@@ -27,6 +28,7 @@ const groupedMaterials = materials.reduce((acc: { name: string; slug: string; ma
 ---
 
 <Layout title="Livonia Play Materials">
+    <Container >
     <h1>Play Materials</h1>
     {groupedMaterials.map(group => (
         <li><a href={`/materials/${group.slug}`}>{group.name} ({group.materials.length})</a> </li>
@@ -35,5 +37,4 @@ const groupedMaterials = materials.reduce((acc: { name: string; slug: string; ma
         {materials.map((material) => (
             <MaterialItem material={material} />
         ))}
-
-</Layout>
+</Container>

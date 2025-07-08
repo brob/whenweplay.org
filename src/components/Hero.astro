@@ -1,0 +1,18 @@
+---
+import RotatingWords from "./RotatingWords.astro";
+
+
+
+const { title, description, image } = Astro.props;
+---
+<section class="hero py-5 mb-10">
+    <div class="hero-content">
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">{title}, We <RotatingWords /></h1>
+        <p class="text-lg text-gray-600">{description}</p>
+    </div>
+    {image && (
+        <div class="hero-image mt-8 flex justify-center">
+            <img class="rounded-lg shadow-lg max-w-full h-auto" src={image} alt={title} />
+        </div>
+    )}
+</section>
