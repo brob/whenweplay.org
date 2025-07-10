@@ -5,6 +5,8 @@ import Layout from '../layouts/Layout.astro';
 import Container from '../components/Container.astro';
 import { getCollection } from 'astro:content';
 import Button from '../components/Button.astro';
+import bg from '../assets/generic-game-bg.jpg'
+import { Image } from "astro:assets";
 const latestPosts = (await getCollection('blog')).slice(0, 2);
 ---
 
@@ -15,7 +17,7 @@ const latestPosts = (await getCollection('blog')).slice(0, 2);
     description="When we play, something magical happens. We come unbound, if only for a time, from the mundane pace of our small reality, and connect to something greater. If we don’t take the time to play, we’re only ever what, who, and where we are."
   />
 </Container>
-
+<div style={`background-image: url(${bg.src})`} class="w-full bg-fixed bg-cover h-50 overflow-hidden inset-shadow-sm"></div>
   <Container classes="mb-15" style="full">
     <h2 class="text-3xl font-bold mb-5">What we do</h2>
     <p class="text-lg text-gray-700 mb-5">In order to support our mission, we partner with organizations and individuals.</p>
