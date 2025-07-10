@@ -3,7 +3,27 @@ import Layout from "../../layouts/Layout.astro"
 import { getCollection } from "astro:content";
 import MaterialItem from "../../components/MaterialItem.astro";
 import Container from "../../components/Container.astro";
+import Accordian from "../../components/Accordian.astro";
 const materials = await getCollection("materials");
+const groupedMaterials = materials.reduce((acc: { name: string; slug: string; materials: typeof materials }[], material) => {
+    const itemTypeName = material.data.itemType || "unknown";
+    const itemTypeSlug = itemTypeName.toLowerCase().replace(/\s+/g, '-'); // Convert itemType to slug format
+
+    if (!acc.some(group => group.slug === itemTypeSlug)) {
+        acc.push({
+            name: itemTypeName,
+            slug: itemTypeSlug,
+            materials: []
+        });
+    }
+
+    const group = acc.find(group => group.slug === itemTypeSlug);
+    if (group) {
+        group.materials.push(material);
+    }
+
+    return acc;
+}, []);
 
 export async function getStaticPaths() {
 const materials = await getCollection('materials');
@@ -45,7 +65,11 @@ const { group } = Astro.props;
 <Layout title="Livonia Play Materials">
     <Container>
     <h1>{group.name} Play Materials ({group.materials.length})</h1>
-
+    <Accordian linkText="Category Filters">
+        {groupedMaterials.map(group => (
+            <li><a href={`/materials/${group.slug}`}>{group.name} ({group.materials.length})</a> </li>
+        ))}
+        </Accordian>
     <ul class="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-8">
         {group.materials.map((material) => (
             <MaterialItem material={material} />

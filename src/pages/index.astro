@@ -6,7 +6,6 @@ import Container from '../components/Container.astro';
 import { getCollection } from 'astro:content';
 import Button from '../components/Button.astro';
 const latestPosts = (await getCollection('blog')).slice(0, 2);
-console.log(latestPosts[0].data.slug);
 ---
 
 <Layout>
@@ -29,7 +28,7 @@ console.log(latestPosts[0].data.slug);
     <div class="p-4 bg-gray-100 rounded shadow">
       <h3 class="text-2xl font-bold mb-2">Create Programs</h3>
       <p class="text-sm text-gray-700">We create Play programs for schools, libraries, and other community-centric organizations that help people come together.</p>
-      <a href="/programs/" class="text-green-800 font-bold hover:underline">See the programs &raquo;</a>
+      <a href="/programs/" class="text-green-800 font-bold hover:underline">Program types &raquo;</a>
     </div>
     <div class="p-4 bg-gray-100 rounded shadow">
       <h3 class="text-2xl font-bold mb-2">Share Space</h3>

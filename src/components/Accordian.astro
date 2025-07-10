@@ -1,0 +1,53 @@
+---
+
+const { linkText="Open" } = Astro.props;
+---
+<div>
+    <custom-accordion link-text={linkText}>
+        <slot />
+    </custom-accordion>
+</div>
+
+<script>
+    class CustomAccordion extends HTMLElement {
+        constructor() {
+            super();
+            this.attachShadow({ mode: 'open' });
+            this.shadowRoot.innerHTML = `
+                <style>
+                    .content {
+                        display: none;
+                    }
+                </style>
+                <a href="#">${this.getAttribute('link-text') || 'Open'}</a>
+                <div class="content">
+                    <slot></slot>
+                </div>
+            `;
+            this.style.display = 'block'; // Ensure the custom element is displayed
+            this.anchor = this.shadowRoot.querySelector('a');
+            this.content = this.shadowRoot.querySelector('.content');
+
+            this.anchor.addEventListener('click', (event) => {
+                event.preventDefault();
+                this.toggleContent();
+            });
+        }
+
+        toggleContent() {
+            this.content.style.display = this.content.style.display === 'block' ? 'none' : 'block';
+        }
+    }
+
+    customElements.define('custom-accordion', CustomAccordion);
+</script>
+
+
+<style>
+    .content {
+        display: none;
+    }
+    custom-accordion {
+        display: none;
+    }
+</style>

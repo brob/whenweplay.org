@@ -53,15 +53,20 @@ const {title, description} = Astro.props
       <footer class="bg-gray-300 text-white py-6">
         <div class="container mx-auto text-center">
           <p>&copy; {new Date().getFullYear()} When We Play. All rights reserved.</p>
-          <p class="text-sm">Made with ❤️ by the When We Play team</p>
+          <p class="copyright">When We Play is a Public Benefit Corporation operating out of Tennessee and Michigan</p>
         </div>
   </body>
 
   <style>
+    @import "tailwindcss";
+
     html,
     body {
       margin: 0;
      
+    }
+    .copyright {
+      @apply text-xs;
     }
   </style>
 

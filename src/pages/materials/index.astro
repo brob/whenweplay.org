@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro"
 import { getCollection } from "astro:content";
 import MaterialItem from "../../components/MaterialItem.astro";
 import Container from "../../components/Container.astro";
+import Accordian from "../../components/Accordian.astro";
 const materials = await getCollection("materials");
 const groupedMaterials = materials.reduce((acc: { name: string; slug: string; materials: typeof materials }[], material) => {
     const itemTypeName = material.data.itemType || "unknown";
@@ -30,9 +31,12 @@ const groupedMaterials = materials.reduce((acc: { name: string; slug: string; ma
 <Layout title="Livonia Play Materials">
     <Container >
     <h1>Play Materials</h1>
+    <Accordian linkText="Category Filters">
     {groupedMaterials.map(group => (
         <li><a href={`/materials/${group.slug}`}>{group.name} ({group.materials.length})</a> </li>
     ))}
+    </Accordian>
+
     <ul class="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-8">
         {materials.map((material) => (
             <MaterialItem material={material} />
