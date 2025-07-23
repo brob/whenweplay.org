@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 import sanity from '@sanity/astro';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://whenweplay.org',
@@ -17,5 +19,7 @@ export default defineConfig({
     projectId: "4v8ldsm8",
     dataset: "production",
     useCdn: false, // for static builds
+  }), sitemap({
+    
   })]
 });
