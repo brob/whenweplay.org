@@ -22,12 +22,12 @@ const {title, description} = Astro.props
     {description && <meta property="og:description" content={description} />}
      <meta name="description" content={description} />
     <meta property="og:site_name" content="When We Play" />
-    <meta property="og:image" content={new URL('/favicon.svg', Astro.url)} />
+    <meta property="og:image" content={new URL('/ogImage.png', Astro.url)} />
 
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={title} />
     {description && <meta property="twitter:description" content={description} />}
-    <meta property="twitter:image" content={new URL('/favicon.svg', Astro.url)}  /> 
+    <meta property="twitter:image" content={new URL('/ogImage.png', Astro.url)}  /> 
     <link rel="sitemap" href="/sitemap-index.xml" />
 
 
