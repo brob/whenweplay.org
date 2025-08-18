@@ -1,5 +1,8 @@
 ---
+import { Image } from "astro:assets";
+import favicon from '../../public/favicon.svg';
 import background from "../assets/background.svg";
+import logo from "../assets/logo.svg";
 import '../styles/global.css';
 
 const {title, description} = Astro.props
@@ -10,7 +13,7 @@ const {title, description} = Astro.props
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/meeple.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -34,7 +37,7 @@ const {title, description} = Astro.props
       <header class="bg-white shadow-md mb-5">
         <div class="container mx-auto flex items-center justify-between py-4 px-6">
           <div class="text-3xl font-bold text-green-700">
-            <a href="/">When We Play</a>
+            <a href="/"><Image src={logo} alt="When We Play" /></a>
           </div>
           <nav class="flex space-x-4">
             <a href="/about" class="text-gray-700 hover:text-green-700">About</a>
@@ -45,7 +48,7 @@ const {title, description} = Astro.props
           </nav>
         </div>
       </header>
-      <img id="background" src={background.src} alt="" fetchpriority="high" />
+      <img id="background" src={favicon.src} alt="" fetchpriority="high" />
         <main class="block relative mb-10">
 
           <slot />
@@ -58,7 +61,7 @@ const {title, description} = Astro.props
         </div>
   </body>
 
-  <style>
+  <style define:vars={{ backgroundUrl: '/assets/logo.svg' }}>
     @import "tailwindcss";
 
     html,
@@ -66,6 +69,7 @@ const {title, description} = Astro.props
       margin: 0;
      
     }
+
     .copyright {
       @apply text-xs;
     }
