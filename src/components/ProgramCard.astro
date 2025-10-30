@@ -8,7 +8,7 @@ import Button from "./Button.astro";
 const query = `*[_id == 'cfde22d6-226e-4550-9801-733fa9bff42a'].quantity`
 const quantity = await sanityClient.fetch(query)
 
-const { price, days, programId } = Astro.props
+const {link, price, days, programId } = Astro.props
 ---
 
 <div class="program-meta">
@@ -17,7 +17,7 @@ const { price, days, programId } = Astro.props
     <p>{quantity} seat{quantity >1 &&`s`} left</p>
 
     {quantity > 0 &&
-    <Button href="https://buy.stripe.com/28E28qgCsd4KdJn5Zw5os01" text="Sign up" />
+    <Button href={link} text="Sign up" />
 }
   <style>
     @import "tailwindcss";
