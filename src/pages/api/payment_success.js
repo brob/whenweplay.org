@@ -1,3 +1,4 @@
+export const prerender = false
 import {loadStripe} from '@stripe/stripe-js';
 import {createClient} from '@sanity/client'
 

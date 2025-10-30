@@ -3,6 +3,7 @@
 
 
 import { sanityClient } from "sanity:client";
+import Button from "./Button.astro";
 
 const query = `*[_id == 'cfde22d6-226e-4550-9801-733fa9bff42a'].quantity`
 const quantity = await sanityClient.fetch(query)
@@ -16,15 +17,7 @@ const { price, days, programId } = Astro.props
     <p>{quantity} seat{quantity >1 &&`s`} left</p>
 
     {quantity > 0 &&
-    <script async
-  src="https://js.stripe.com/v3/buy-button.js">
-</script>
-
-<stripe-buy-button
-  buy-button-id="buy_btn_1SNzDkAZHHVxdA89NMZPe213"
-  publishable-key="pk_live_51SNYW3AZHHVxdA89S21VIW9X409mhIa1n0UKBvdx3d3VMC2gBJX9LRD8ccEbvAQjAfPobyFZPsqB52ufFRSPMNLb00KbkDEFFL"
->
-</stripe-buy-button>
+    <Button href="https://buy.stripe.com/28E28qgCsd4KdJn5Zw5os01" text="Sign up" />
 }
   <style>
     @import "tailwindcss";
