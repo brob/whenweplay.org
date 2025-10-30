@@ -13,7 +13,7 @@ const client = createClient({
 
 
 export async function POST({ request }) {
-  const data = (await request.json()).object
+  const data = (await request.json()).data.object
   console.log(data)
 
     if (!data?.metadata?.sanity_id) return new Response('No metadata',{status: 500})
