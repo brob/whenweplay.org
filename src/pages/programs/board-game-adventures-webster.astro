@@ -11,7 +11,7 @@ import ProgramCard from '../../components/ProgramCard.astro'
 <Layout title="Board game adventures at Webster Elementary">
 <Container>
     <h1 class="text-4xl font-bold mb-4">Board Game Adventures @ Webster Elementary</h1>
-    <div class="program-grid">
+    <div class="program-grid md:grid">
        
     <div class="program-details">
         <p>
@@ -39,8 +39,7 @@ import ProgramCard from '../../components/ProgramCard.astro'
 <style>
     @import "tailwindcss";
     .program-grid {
-        display: grid;
-        grid-template-columns: 3fr 1fr;
+        grid-template-columns: 3fr minmax(20rem, 1fr);
         gap: 1rem;
     }
     .program-meta {

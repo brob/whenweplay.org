@@ -2,10 +2,12 @@
 import { sanityClient } from "sanity:client";
 import Button from "./Button.astro";
 
-const query = `*[_id == 'cfde22d6-226e-4550-9801-733fa9bff42a'].quantity`
-const quantity = await sanityClient.fetch(query)
 
 const {link, price, days, programId } = Astro.props
+
+const query = `*[_id == $programId].quantity`
+const quantity = await sanityClient.fetch(query, {programId: programId})
+
 ---
 
 <div class="program-meta">
