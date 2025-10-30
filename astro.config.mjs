@@ -7,6 +7,8 @@ import sanity from '@sanity/astro';
 
 import sitemap from '@astrojs/sitemap';
 
+import netlify from '@astrojs/netlify';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://whenweplay.org',
@@ -21,5 +23,7 @@ export default defineConfig({
     useCdn: false, // for static builds
   }), sitemap({
     
-  })]
+  })],
+
+  adapter: netlify()
 });

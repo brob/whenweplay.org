@@ -1,0 +1,52 @@
+---
+
+
+
+import { sanityClient } from "sanity:client";
+
+const query = `*[_id == 'cfde22d6-226e-4550-9801-733fa9bff42a'].quantity`
+const quantity = await sanityClient.fetch(query)
+
+const { price, days, programId } = Astro.props
+---
+
+<div class="program-meta">
+    <h3>${price}</h3>
+    <h4>{days}</h4>
+    <p>{quantity} seat{quantity >1 &&`s`} left</p>
+
+    {quantity > 0 &&
+    <script async
+    src="https://js.stripe.com/v3/buy-button.js">
+  </script>
+  
+  <stripe-buy-button
+    buy-button-id="buy_btn_1SNweYAZHHVxdA898FNGPJoa"
+    publishable-key="pk_live_51SNYW3AZHHVxdA89S21VIW9X409mhIa1n0UKBvdx3d3VMC2gBJX9LRD8ccEbvAQjAfPobyFZPsqB52ufFRSPMNLb00KbkDEFFL"
+  >
+  </stripe-buy-button>
+}
+  <style>
+    @import "tailwindcss";
+    .program-grid {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: 1rem;
+    }
+    .program-meta {
+        padding: 1rem;
+        background-color: white;
+        align-self: start;
+
+        h3 {
+            @apply text-3xl font-bold mb-5;
+
+        }
+        h4 {
+            @apply text-xl italic mb-2;
+        }
+        p {
+            @apply mb-2
+        }
+    }
+    </style>
