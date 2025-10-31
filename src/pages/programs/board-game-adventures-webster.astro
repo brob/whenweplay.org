@@ -4,15 +4,20 @@ import Layout from '../../layouts/Layout.astro';
 import Container from '../../components/Container.astro';
 import Button from '../../components/Button.astro';
 import ProgramCard from '../../components/ProgramCard.astro'
+import { Image } from 'astro:assets';
+import bgImage from '../../assets/generic-game-bg.jpg'
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout title="Board game adventures at Webster Elementary">
+<Layout title="Board game adventures at Webster Elementary (Fall)">
 <Container>
-    <h1 class="text-4xl font-bold mb-4">Board Game Adventures @ Webster Elementary</h1>
+    <h1 class="text-4xl font-bold mb-4">Board Game Adventures @ Webster Elementary (Fall)</h1>
     <div class="program-grid md:grid">
-       
+        <div class="mb-5 md:mb-0">
+            <Image class="md:block hidden mb-5" src={bgImage} alt="Picture of games" />
+            <ProgramCard server:defer link="https://buy.stripe.com/28E28qgCsd4KdJn5Zw5os01" programId="cfde22d6-226e-4550-9801-733fa9bff42a" price="120" days="Nov. 13 - Dec. 18 Thursdays" time="3 p.m. - 4:15p.m." quantity={10}></ProgramCard>
+        </div>
     <div class="program-details">
         <p>
             When we play together, we learn to connect more. Board games serve as a community experience that helps kids learn to interact with one another in more meaningful ways. At the same time, games help teach critical thinking, resiliency, and strategy.
@@ -30,7 +35,6 @@ import ProgramCard from '../../components/ProgramCard.astro'
         </ul>
     
     </div> 
-    <ProgramCard server:defer link="https://buy.stripe.com/28E28qgCsd4KdJn5Zw5os01" programId="cfde22d6-226e-4550-9801-733fa9bff42a" price="120" days="Thursdays from 3-4:15p.m." quantity={10}></ProgramCard>
 </div>
 </Container>
 </Layout>
@@ -38,9 +42,12 @@ import ProgramCard from '../../components/ProgramCard.astro'
 
 <style>
     @import "tailwindcss";
+    h1 {
+        @apply leading-[1em] 
+    }
     .program-grid {
-        grid-template-columns: 3fr minmax(20rem, 1fr);
-        gap: 1rem;
+        grid-template-columns:  minmax(20rem, 1fr) 3fr;
+        gap: 1.5rem;
     }
     .program-meta {
         padding: 1rem;
