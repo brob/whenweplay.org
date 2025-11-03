@@ -10,7 +10,7 @@ const quantity = await sanityClient.fetch(query, {programId: programId})
 ---
 
 <div class="program-meta shadow-xl rounded">
-    <h3>${price} <span class="text-sm">({quantity} seat{quantity >1 &&`s`} left)</span></h3>
+    <h3>${price} <span class="text-sm">({quantity} seat{quantity != 1 &&`s`} left)</span></h3>
     <p><strong>Dates:</strong> {days}</p>
     <p><strong>Time:</strong> {time}</p>
     <p><strong>Ages:</strong> {recommendedAge}</p>
@@ -26,7 +26,7 @@ const quantity = await sanityClient.fetch(query, {programId: programId})
         gap: 1rem;
     }
     form p {
-        @apply mb-5
+        @apply mb-5;
     }
     form h3 {
         @apply mt-10 mb-1;
@@ -37,7 +37,7 @@ const quantity = await sanityClient.fetch(query, {programId: programId})
         align-self: start;
         
         h3 {
-            @apply text-3xl font-bold mb-5 ;
+            @apply text-3xl font-bold mb-5;
 
         }
         h4 {
