@@ -17,6 +17,25 @@ const quantity = await sanityClient.fetch(query, {programId: programId})
     {quantity > 0 &&
     <Button className="block text-center w-full mt-5" href={link} text="Sign up" />
 }
+{ 
+    quantity < 1 && (
+        <form name="waitlist" method="POST" data-netlify="true">
+            <h3 class="mb-4" >Join the waitlist</h3>
+            <p class="mb-4">We'll notify you if a seat opens.</p>
+        <div class="mb-4">
+            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+            <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md border border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-base py-2" />
+        </div>
+        <input type="text" hidden value={programId} />
+        <div>
+            <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-green-700 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            Submit
+            </button>
+        </div>
+
+    </form>
+    )
+}
 
   <style>
     @import "tailwindcss";
