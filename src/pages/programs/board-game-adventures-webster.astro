@@ -15,7 +15,7 @@ import bgImage from '../../assets/generic-game-bg.jpg'
     <h1 class="text-4xl font-bold mb-4">Board Game Adventures @ Webster Elementary (Fall)</h1>
     <div class="program-grid md:grid">
         <div class="mb-5 md:mb-0">
-            <Image class="md:block hidden mb-5" src={bgImage} alt="Picture of games" />
+            <!-- <Image class="md:block hidden mb-5" src={bgImage} alt="Picture of games" /> -->
             <ProgramCard server:defer link="https://buy.stripe.com/28E28qgCsd4KdJn5Zw5os01" programId="cfde22d6-226e-4550-9801-733fa9bff42a" price="120" days="Thursdays Nov. 13 - Dec. 18" time="3 p.m. - 4:15p.m." quantity={10}></ProgramCard>
         </div>
     <div class="program-details">
@@ -39,43 +39,3 @@ import bgImage from '../../assets/generic-game-bg.jpg'
 </Container>
 </Layout>
 
-
-<style>
-    @import "tailwindcss";
-    h1 {
-        @apply leading-[1em] 
-    }
-    .program-grid {
-        grid-template-columns:  minmax(20rem, 1fr) 3fr;
-        gap: 1.5rem;
-    }
-    .program-meta {
-        padding: 1rem;
-        background-color: white;
-        align-self: start;
-
-        h3 {
-            @apply text-3xl font-bold mb-3;
-
-        }
-        h4 {
-            @apply text-xl italic mb-3;
-        }
-    }
-    h2 {
-        @apply text-3xl font-bold mt-6 mb-2;
-    }
-    h4 {
-        @apply text-3xl font-bold mt-6 mb-4;
-    }
-    ul {
-        padding-inline-start: 1rem;
-    }
-    li {
-        list-style-type: disc;
-        @apply mb-0.5
-    }
-    p {
-        @apply text-lg text-gray-700 mb-4;
-    }
-</style>
