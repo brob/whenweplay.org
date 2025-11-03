@@ -17,6 +17,21 @@ import bgImage from '../../assets/generic-game-bg.jpg'
         <div class="mb-5 md:mb-0">
             <Image class="md:block hidden mb-5" src={bgImage} alt="Picture of games" />
             <ProgramCard server:defer link="https://buy.stripe.com/28E28qgCsd4KdJn5Zw5os01" programId="cfde22d6-226e-4550-9801-733fa9bff42a" price="120" days="Thursdays Nov. 13 - Dec. 18" time="3 p.m. - 4:15p.m." quantity={10}></ProgramCard>
+         <form name="waitlist" method="POST" data-netlify="true">
+            <h3 class="mb-4" >Join the waitlist</h3>
+            <p class="mb-4">We'll notify you if a seat opens.</p>
+        <div class="mb-4">
+            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+            <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md border border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-base py-2" />
+        </div>
+        <input type="text" hidden value="cfde22d6-226e-4550-9801-733fa9bff42a" />
+        <div>
+            <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-green-700 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            Submit
+            </button>
+        </div>
+
+    </form>
         </div>
     <div class="program-details">
         <p>
@@ -42,9 +57,20 @@ import bgImage from '../../assets/generic-game-bg.jpg'
 
 <style>
     @import "tailwindcss";
+    form p {
+        @apply mb-5;
+    }
+    form h3 {
+        @apply  mb-1 text-2xl;
+
+    }
+    form {
+        @apply bg-white p-3 rounded mt-4 shadow-2xl; 
+    }
     h1 {
         @apply leading-[1em] 
     }
+
     .program-grid {
         grid-template-columns:  minmax(20rem, 1fr) 3fr;
         gap: 1.5rem;
