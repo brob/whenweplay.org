@@ -17,8 +17,7 @@ const quantity = await sanityClient.fetch(query, {programId: programId})
     {quantity > 0 &&
     <Button className="block text-center w-full mt-5" href={link} text="Sign up" />
 }
-{ 
-    quantity < 1 && (
+
         <form name="waitlist" method="POST" data-netlify="true">
             <h3 class="mb-4" >Join the waitlist</h3>
             <p class="mb-4">We'll notify you if a seat opens.</p>
@@ -34,8 +33,7 @@ const quantity = await sanityClient.fetch(query, {programId: programId})
         </div>
 
     </form>
-    )
-}
+
 
 <style>
     @import "tailwindcss";
