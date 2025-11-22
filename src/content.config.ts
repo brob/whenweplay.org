@@ -32,7 +32,7 @@ const materials = defineCollection({
     loader: async () => {
 
         // return []
-        const query = `*[_type == "material"]{
+        const query = `*[_type == "material" && isInInventory == true]{
             _id,
             name,
             tagline,
