@@ -24,10 +24,10 @@ const materials = defineCollection({
         boxArt: z.any().nullable(),
         available: z.boolean().nullable().optional(),
         description: z.any(),
+        descriptionPlainText: z.string().optional(),
         msrp: z.number().nullable().optional(),
         age: z.string().nullable(),
         itemType: z.string().nullable().optional()
-
     }),
     loader: async () => {
 
@@ -43,6 +43,7 @@ const materials = defineCollection({
             },
             available,
             description,
+            "descriptionPlainText": pt::text(description),
             msrp,
             age,
             itemType
@@ -61,10 +62,12 @@ const materials = defineCollection({
             slug: material.slug.current,
             available: material.available,
             description: material.description,
+            descriptionPlainText: material.descriptionPlainText || '',
             msrp: material.msrp,
             age: material.age,
             boxArt: material.boxArt,
             itemType: material.itemType,
+
             // boxArtUrl: material?.boxArt ? urlFor(material.boxArt).url() : null
 
         }))

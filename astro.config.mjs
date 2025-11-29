@@ -9,6 +9,8 @@ import sitemap from '@astrojs/sitemap';
 
 import netlify from '@astrojs/netlify';
 
+import react from '@astrojs/react';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://whenweplay.org',
@@ -23,7 +25,7 @@ export default defineConfig({
     useCdn: false, // for static builds
   }), sitemap({
     
-  })],
+  }), react()],
 
   adapter: netlify()
 });

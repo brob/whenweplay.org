@@ -6,6 +6,7 @@ import { PortableText } from "astro-portabletext";
 import Availability from "../../components/Availability.astro";
 import SanityImage from "../../components/SanityImage.astro";
 import Container from "../../components/Container.astro";
+import Search from "../../components/Search";
 
 export async function getStaticPaths() {
 const materials = await getCollection('materials');
@@ -27,8 +28,9 @@ const { name, tagline, slug, description, msrp, age } = material;
 
 <Layout title={name}>
 <Container>
+    <Search client:load />
         <div class="flex mb-10 justify-between items-center">
-
+            
             <div>
                 <h1 class="text-2xl font-bold">{name}</h1>
                 {tagline &&<p class="text-gray-600">{tagline}</p>}
