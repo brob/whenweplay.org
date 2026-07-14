@@ -18,7 +18,7 @@ const {material} = Astro.props
             <label for="material" class="block text-sm font-medium text-gray-700">Material</label>
             <input type="text" readonly id="game" name="game" value={material.name} required class="mt-1 p-1 bg-gray-200 text-gray-500 block w-full rounded-md border border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-base py-2"></textarea>
         </div>
-        <input type="hidden" value={material.id} />
+        <input type="hidden" name="materialId" id="materialId" value={material.id} />
         <div>
             <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-green-700 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
             Submit
