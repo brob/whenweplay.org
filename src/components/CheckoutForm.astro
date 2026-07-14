@@ -1,0 +1,30 @@
+---
+
+
+const {material} = Astro.props
+---
+
+
+  <form name="checkout" method="POST" data-netlify="true" class="mb-10">
+        <div class="mb-4">
+            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+            <input type="text" id="name" name="name" required class="mt-1 p-1 block w-full rounded-md border border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-base py-2" />
+        </div>
+        <div class="mb-4">
+            <label for="email" class="block text-sm font-medium text-gray-700">Email <span class="text-xs text-gray-500">(Used only for coordinating)</span></label>
+            <input type="email" id="email" name="email" required class="mt-1 p-1 block w-full rounded-md border border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-base py-2" />
+        </div>
+        <div class="mb-4">
+            <label for="material" class="block text-sm font-medium text-gray-700">Material</label>
+            <input type="text" readonly id="game" name="game" value={material.name} required class="mt-1 p-1 bg-gray-200 text-gray-500 block w-full rounded-md border border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-base py-2"></textarea>
+        </div>
+        <input type="hidden" value={material.id} />
+        <div>
+            <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-green-700 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            Submit
+            </button>
+        </div>
+
+    </form>
+
+</form>

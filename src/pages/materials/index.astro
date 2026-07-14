@@ -32,20 +32,30 @@ const groupedMaterials = materials.reduce((acc: { name: string; slug: string; ma
 ---
 
 <Layout title="Livonia Play Materials">
-    <Container >
-    <h1>Play Materials</h1>
+    <Container style="full" >
+        <div class="grid grid-cols-[.5fr_3fr] gap-8">
+            <div>
+                <h3 class="text-xl font-bold">Categories</h3>
+            <ul>
+                {groupedMaterials.map(group => (
+                    <li><a href={`/materials/${group.slug}`}>{group.name} ({group.materials.length})</a> </li>
+                ))}
+            </ul>           
+        </div>
 
-    <Search client:load />
+        <div>
+            <h1>Play Materials</h1>
 
-    <Accordian linkText="Category Filters">
-    {groupedMaterials.map(group => (
-        <li><a href={`/materials/${group.slug}`}>{group.name} ({group.materials.length})</a> </li>
-    ))}
-    </Accordian>
+            <Search client:load />
 
-    <ul class="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-8">
-        {materials.map((material) => (
-            <MaterialItem material={material} />
-        ))}
+
+            <ul class="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-8">
+                {materials.map((material) => (
+                    <MaterialItem material={material} />
+                ))}
+            </ul>
+        </div>
+    </div>
 </Container>
 
+</Layout>

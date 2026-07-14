@@ -29,7 +29,7 @@ const Search = () => {
             <input
             id="SearchField"
             name="Search"
-            className="border border-gray-300 rounded-lg w-full p-2"
+            className="border border-gray-300 my-8 rounded-lg w-full p-2"
             type="text"
             value={inputValue}
             placeholder="Search materials..."

@@ -15,6 +15,38 @@ const blog = defineCollection({
     })
 })
 
+const events = defineCollection({
+    schema: z.object({
+        id: z.string(),
+        title: z.string(),
+        slug: z.string(),
+        starttime: z.string(),
+        endtime: z.string(),
+        description: z.string(),
+        content: z.any()
+    }),
+    loader: async () => {
+        const query = `*[_type == "event" && dateTime(now()) < dateTime(starttime) ]{
+            "id": _id,
+            title,
+            "slug": slug.current,
+            starttime,
+            endtime,
+            description,
+            content
+        }`;
+
+        const events = await sanityClient.fetch(query);
+
+        return events; // Limit to 10 items for performance
+    }
+
+
+
+
+    
+})
+
 const materials = defineCollection({
     schema: z.object({
         id: z.string(),
@@ -33,6 +65,7 @@ const materials = defineCollection({
 
         // return []
         const query = `*[_type == "material" && isInInventory == true]{
+  _createdAt,
             _id,
             name,
             tagline,
@@ -47,12 +80,8 @@ const materials = defineCollection({
             msrp,
             age,
             itemType
-        }`;
-
-        const builder = imageUrlBuilder(sanityClient)
-        function urlFor(source) {
-            return builder.image(source);
-          }
+        }|order(_createdAt desc)`;
+   
 
         const materials = await sanityClient.fetch(query);
         const readiedMaterials = materials.map((material: SanityDocument) => ({
@@ -77,4 +106,4 @@ const materials = defineCollection({
 })
 
 
-export const collections = { blog,materials }
+export const collections = { blog,materials, events }

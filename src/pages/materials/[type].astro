@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro"
 import { getCollection } from "astro:content";
 import MaterialItem from "../../components/MaterialItem.astro";
 import Container from "../../components/Container.astro";
-import Accordian from "../../components/Accordian.astro";
+import Search from "../../components/Search"
 const materials = await getCollection("materials");
 const groupedMaterials = materials.reduce((acc: { name: string; slug: string; materials: typeof materials }[], material) => {
     const itemTypeName = material.data.itemType || "unknown";
@@ -63,16 +63,29 @@ const { group } = Astro.props;
 ---
 
 <Layout title="Livonia Play Materials">
-    <Container>
-    <h1>{group.name} Play Materials ({group.materials.length})</h1>
-    <Accordian linkText="Category Filters">
-        {groupedMaterials.map(group => (
-            <li><a href={`/materials/${group.slug}`}>{group.name} ({group.materials.length})</a> </li>
-        ))}
-        </Accordian>
-    <ul class="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-8">
-        {group.materials.map((material) => (
-            <MaterialItem material={material} />
-        ))}
+    <Container style="full" >
+        <div class="grid grid-cols-[.5fr_3fr] gap-8">
+            <div>
+                <h3 class="text-xl font-bold">Categories</h3>
+            <ul>
+                {groupedMaterials.map(groupLoop => (
+                    <li><a href={`/materials/${groupLoop.slug}`} class={(groupLoop.name === group.name) ? "font-bold": "font-normal"} >{groupLoop.name} ({groupLoop.materials.length})</a> </li>
+                ))}
+            </ul>           
+        </div>
+
+        <div>
+            <h1>{group.name} Play Materials ({group.materials.length})</h1>
+            <Search client:load />
+
+
+            <ul class="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-8">
+                {materials.map((material) => (
+                    <MaterialItem material={material} />
+                ))}
+            </ul>
+        </div>
+    </div>
 </Container>
+
 </Layout>
